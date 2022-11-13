@@ -1,0 +1,6 @@
+/.env
+/bin/
+/log/
+/output/output.csv
+/vendor/
+/.idea/

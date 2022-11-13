@@ -1,0 +1,31 @@
+{% set title = 'Our Story'%}
+{% extends "base.twig" %}
+{% block content %}
+<div class="container">
+    <h3 class="page-heading">
+        Our Story
+    </h3>
+
+{#    @TODO Make this dynamic #}
+{#    <p class="our-story-text" style="text-align: justify-all;">#}
+{#        <img class="rounded d-none d-md-block" src="{{data.ourStoryImg}}"  height="400px" alt="" style="#}
+{#        float: left;#}
+{#        min-height: 400px;#}
+{#        height: 80vh;#}
+{#        margin-right: 15px;">#}
+{#        {{ data.ourStory | raw }}#}
+{#    </p>#}
+
+    <p class="our-story-text" style="text-align: justify-all;">
+        <img class="rounded d-none d-md-block" src="{{data.ourStoryImg}}"  height="400px" alt="" style="
+        float: right;
+        min-height: 400px;
+        height: 80vh;
+        margin-left: 15px;">
+        {{ data.ourStory | raw }}
+    </p>
+</div>
+
+{#{{data.ourStory | raw}}#}
+
+{% endblock %}

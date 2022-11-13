@@ -1,0 +1,52 @@
+gifts-carousel {
+  height: 100vh !important;
+}
+
+.gifts-carousel-overlay-img {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  @media screen and (max-width: 450px) {
+    background: rgba(16, 16, 16, 0.44);
+  }
+
+    //background: black;
+
+  .gifts-carousel-overlay-img-headers {
+    color: whitesmoke;
+    @media screen and (min-width: 400px) and (max-width: 420px) {
+      margin-top: 50px !important;
+    }
+
+    .gifts-carousel-overlay-img-headers-heading {
+      text-align: center;
+      font-size: 80px;
+      margin-bottom: 30px;
+
+      @media screen and (max-width: 400px) {
+        margin-top: 29px;
+      }
+
+    }
+
+    p {
+      font-size: 20px;
+      min-width: 300px;
+
+      @media screen and (max-width: 400px) {
+        font-size: 16px;
+      }
+
+      @media screen and (max-width: 855px) {
+        line-height: 60px;
+        br {
+          display: none !important;
+        }
+      }
+    }
+  }
+}

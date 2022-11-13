@@ -1,0 +1,14 @@
+.page-heading {
+  color: whitesmoke;
+}
+
+.accommodation-container {
+  color: whitesmoke;
+  .accommodation-container-card {
+    cursor: pointer;
+
+    .within-text {
+      font-size: 13px;
+    }
+  }
+}

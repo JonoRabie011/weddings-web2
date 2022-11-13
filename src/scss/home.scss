@@ -1,0 +1,209 @@
+//$carouselHeight: 100vh !dynamic;
+$HeaderImgMinHeight: 430px;
+$MobileBreakPoint: 468px;
+
+
+.count-down-card-title {
+  font-size: 13px;
+  display: block;
+}
+
+.count-down-card {
+  margin: 10px 0px;
+  background: rgba(180, 180, 180, 0.2);
+  display: inline-block;
+  width: fit-content;
+  padding: 0 9px;
+  height: 31px;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: center;
+  line-height: 31px;
+  min-width: 50px;
+}
+
+.center-heading {
+  display: block !important;
+  width: fit-content;
+  margin: 18px auto !important;
+}
+
+.home-carousel {
+  height: var(--homepage-carousel-height);
+  min-height: $HeaderImgMinHeight;
+  .carousel-overlay-img {
+    min-height: $HeaderImgMinHeight;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    //opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(180, 180, 180, 0.2);
+    overflow:hidden;
+    text-align: center;
+
+    .carousel-overlay-img-headers {
+      color: whitesmoke;
+      min-width: 300px;
+      width: fit-content;
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .carousel-overlay-img-headers-wedding-title {
+        font-family: 'gatsby-font';
+        font-size: 76px;
+
+        @media screen and (min-width: $MobileBreakPoint) {
+          font-size: 119px !important;
+        }
+
+        .carousel-overlay-img-headers-wedding-title-subtitle {
+          text-transform: uppercase;
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 13px;
+          position: absolute;
+          bottom: 86px;
+          width: fit-content;
+          right: 0;
+
+          @media screen and (max-width: $MobileBreakPoint) {
+            right: 5px;
+            bottom: 69px;
+            font-size: 8.5px !important;
+          }
+        }
+      }
+
+      .carousel-overlay-img-headers-wedding-date {
+        font-size: 24px;
+        letter-spacing: 6px;
+        alignment-baseline: text-after-edge;
+        margin-top: -15px;
+
+        @media screen and (max-width: $MobileBreakPoint) {
+          font-size: 17px;
+        }
+      }
+
+    }
+  }
+
+  .carousel-item-img {
+    height: var(--homepage-carousel-height);
+    min-height: $HeaderImgMinHeight;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .carousel-overlay-img-fab {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.our-story {
+  text-align: center;
+  background: #fafafa;
+  padding: 30px 0px;
+  .our-story-heading {
+    width: fit-content;
+    display: block;
+    margin: auto;
+  }
+}
+
+.more-information {
+  background: white;
+  .more-information-cards-container {
+    width: 95%;
+    margin: auto;
+    .card {
+      border: none;
+
+      .more-information-cards-container-card {
+        min-width: 200px;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 15px;
+        border: none !important;
+        transition: box-shadow .5s;
+
+        &:hover {
+          box-shadow: 0px 0px 7px -1px rgba(0,0,0,1);
+          -webkit-box-shadow: 0px 0px 7px -1px rgba(0,0,0,1);
+          -moz-box-shadow: 0px 0px 7px -1px rgba(0,0,0,1);
+          z-index: 2 !important;
+          cursor: pointer;
+        }
+        //margin: 10px;
+        img {
+          width: 100px;
+          display: block;
+          margin: 0 auto;
+        }
+        span {
+          width: fit-content;
+          max-width: 200px;
+          display: block;
+          margin: 0 auto;
+        }
+
+      }
+    }
+
+  }
+}
+
+.rsvp-modal {
+  .modal-header {
+    border-bottom: none;
+
+    .modal-title {
+      width: 100%;
+      letter-spacing: 5px;
+      text-align: center;
+      //font-size: 25px;
+      color: #302f2f;
+    }
+  }
+
+  .modal-body {
+    #rsvp-form {
+      .form-label {
+        font-size: 13px;
+        font-weight: bolder;
+      }
+
+      .form-control {
+        background: none !important;
+        font-size: 12px;
+        text-transform: uppercase;
+        border: 0.1px solid #302f2f;
+      }
+    }
+  }
+
+  .modal-footer {
+    border: none !important;
+
+    .rsvp-btn {
+      background: #d0ab8e;
+      border: 1px solid #302f2f !important;
+      //color: ;
+    }
+  }
+}

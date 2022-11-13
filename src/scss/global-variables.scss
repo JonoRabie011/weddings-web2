@@ -1,0 +1,61 @@
+:root {
+  //Non dynamic fixed vars
+  //Layout Vars
+  --footer-height: 100px;
+}
+
+@font-face {
+  font-family: 'gatsby-font';
+  src: url('/src/public/fonts/kearaFont.ttf') format('truetype');
+  //url('/fonts/PartyatGatsbys.woff2') format('woff2'),
+  //url('/fonts/PartyatGatsbys.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@media screen and (max-width: 450px ) {
+  :root {
+    //Home page vars
+    --homepage-carousel-height: 100vh;
+  }
+}
+
+@media screen and (min-width: 451px) {
+  :root {
+    //Home page vars
+    --homepage-carousel-height: 100vh;
+  }
+}
+
+$theme-colors: (
+        "primary": #a5585f,
+        "secondary":  #b88a40,
+        "success": #b3cda9,
+        "danger": #a5585f
+);
+
+.fancy-font {
+  font-family: 'gatsby-font';
+}
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.page-heading {
+  font-family: 'gatsby-font';
+  width: fit-content;
+  margin: 0 auto 29px auto;
+  font-size: 57px;
+  font-weight: 500;
+}
+
+.secondary-background {
+  background: #d0ab8e !important;
+}
+
+.text-custom-gray {
+  color: #302f2f !important;
+}
+

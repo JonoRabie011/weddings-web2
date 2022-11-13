@@ -1,0 +1,63 @@
+{% set title = "Accommodation" %}
+{% extends "base.twig" %}
+{% block content %}
+<div class="container">
+    <h3 class="page-heading">
+        Where to Stay
+    </h3>
+    <div class="row accommodation-container" style="max-width: 1000px; margin: auto">
+        {% for acc in accommodation %}
+        <div class="col-12 col-sm-6  col-md-4 accommodation-container-card">
+            <div class="row">
+                <div class="col-12">
+                    <div id="accommodation-carousel-{{loop.index}}" class="carousel slide" data-bs-interval="false">
+                        <div class="carousel-inner rounded">
+                            {% for img in acc.imgs %}
+                                <div class="carousel-item {% if loop.first %} active {% endif%}">
+                                    <img onclick="cardClicked('{{acc.url}}')" src="{{img}}" class="d-block w-100" style="object-fit: cover;" height="250">
+                                </div>
+                            {% endfor %}
+{#                            <div class="carousel-item">#}
+{#                                <img onclick="cardClicked('{{acc.url}}')" src="https://via.placeholder.com/250x250?text=Hello+slide 2" class="d-block w-100">#}
+{#                            </div>#}
+{#                            <div class="carousel-item">#}
+{#                                <img onclick="cardClicked('{{acc.url}}')" src="https://via.placeholder.com/250x250?text=Hello+slide 3" class="d-block w-100">#}
+{#                            </div>#}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#accommodation-carousel-{{loop.index}}" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#accommodation-carousel-{{loop.index}}" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row montserrat" onclick="cardClicked('{{acc.url}}')">
+                <div class="col-12 px-3 pb-2">
+                        <span class="d-block">
+                            <i class="fa fa-bed" aria-hidden="true"></i>
+                            {{acc.title}}
+                        </span>
+                    {#                        <span class="d-block">Rooms</span>#}
+                    <span class="d-block within-text">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            {{acc.distance}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{#    <div class="row">#}
+{#        Ideas#}
+{#    </div>#}
+</div>
+<script>
+    function cardClicked(url) {
+        window.open("//" + url, "_blank");
+    }
+</script>
+{% endblock %}

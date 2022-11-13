@@ -1,0 +1,60 @@
+$menuBreakPoint: 655px;
+@media screen and (max-width: $menuBreakPoint) {
+  #standard-menu {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $menuBreakPoint + 1){
+  #mobile-menu {
+    display: none;
+  }
+}
+
+.navigation-container {
+  width: 100%;
+  background: transparent !important;
+  //box-shadow: -1px 3px 8px -1px rgba(0,0,0,0.75);
+  //-webkit-box-shadow: -1px 3px 8px -1px rgba(0,0,0,0.75);
+  //-moz-box-shadow: -1px 3px 8px -1px rgba(0,0,0,0.75);
+}
+
+.nav-item a {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  transition: color .5s;
+  color: whitesmoke;
+
+  &:hover {
+    cursor: pointer;
+    color: #a5585f !important;
+  }
+
+  //@TODO fix cursor on hover
+  .nav-link,.disabled{
+      cursor: not-allowed !important;
+  }
+}
+
+.offcanvas-body {
+  .nav-link {
+    color: #222222 !important;
+  }
+}
+
+.text-dark {
+  color: black !important;
+}
+
+//FOOTER STYLING
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  height: var(--footer-height);
+  width: 100vw;
+  text-align: center;
+  background: black;
+  z-index: -1;
+}
+
+

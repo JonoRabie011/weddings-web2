@@ -1,0 +1,121 @@
+<!-- Full screen modal -->
+<div class="modal fade" id="rsvp-modal-toggle" tabindex="-1" aria-labelledby="rsvp-modal-toggle" aria-hidden="true">
+    <div  class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered rsvp-modal">
+        <div class="modal-content ">
+            <div class="modal-header secondary-background">
+                <h5 class="modal-title montserrat" id="exampleModalToggleLabel">PLEASE RSVP</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body secondary-background">
+                <img src="/src/public/images/rabie-wedding/icon.png"
+                     class="d-md-none"
+                     style="
+                     min-width: 130px;
+                    width: 35vw;
+                    margin: 0 auto;
+                    display: block;
+                    margin-bottom: 20px;" alt="">
+                <form name="validForm" id="rsvp-form" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label montserrat">NAME AND SURNAME</label>
+                        <input type="text" class="form-control" name="fullNames" id="nameInput" required>
+                        <div id="nameError" class="form-text text-danger d-none">Please enter your name and surname</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailInput" class="form-label montserrat">PHONE NUMBER</label>
+{#                        @TODO fix input yo phone number type#}
+                        <input type="text" class="form-control" name="phone" id="phoneInput" aria-describedby="emailHelp" required>
+{#                        <div id="emailHelp" class="form-text">We'll never share your phone number</div>#}
+                        <div id="phoneError" class="form-text text-danger d-none">Please enter a phone number</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dietaryRestrictions" class="form-label montserrat">DIETARY RESTRICTIONS</label>
+                        <textarea class="form-control" name="dietaryRestrictions" id="dietaryRestrictions" rows="3"></textarea>
+                    </div>
+
+{#                    RSVP#}
+                    <div style="width: fit-content; margin: 0 auto">
+                        <input type="radio" class="btn-check" name="coming" id="danger-outlined" autocomplete="off" value="No">
+                        <label class="btn btn-outline montserrat text-uppercase" style="font-size: 14px;" for="danger-outlined">Sorry, I can't make it</label>
+
+                        <input type="radio" class="btn-check" name="coming" id="success-outlined" autocomplete="off" value="Yes" checked>
+                        <label class="btn btn-outline montserrat text-uppercase" style="font-size: 14px;" for="success-outlined">Yes, let's do this!</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer secondary-background">
+{#                <button onclick="submitRsvp()" class="btn btn-primary" data-bs-target="#rsvp-modal-toggle" data-bs-toggle="modal" data-bs-dismiss="modal">Rsvp</button>#}
+                <button onclick="submitRsvp()" class="btn rsvp-btn">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="rsvped-modal-toggle" tabindex="-1" aria-labelledby="rsvped-modal-toggle" aria-hidden="true">
+    <div  class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered rsvp-modal">
+        <div class="modal-content ">
+            <div class="modal-header secondary-background">
+                <h5 class="modal-title montserrat" id="rsvped-modal-toggle">PLEASE RSVP</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body secondary-background">
+                <div>
+                    <img src="/src/public/images/rabie-wedding/icon.png"
+                         style="
+                    min-width: 130px;
+                    width: 35vw;
+                    max-width: 230px;
+                    margin: 0 auto;
+                    display: block;
+                    margin-bottom: 20px;" alt="">
+
+                    <h3 class="montserrat" style="text-align: center">We appreciate your response</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function submitRsvp() {
+        const form = document.getElementById('rsvp-form');
+        const toast = document.getElementById('rsvpToast');
+        const nameError = document.getElementById('nameError');
+        const phoneError = document.getElementById('phoneError');
+        const formData = new FormData(form);
+
+        let name = document.forms["validForm"]["fullNames"].value;
+        let phone = document.forms["validForm"]["phone"].value;
+        if (name == "") {
+            nameError.className = nameError.className.replace("d-none", "d-block");
+        } else {
+            nameError.className = nameError.className.replace("d-block", " d-none");
+        }
+        if (phone == "") {
+            phoneError.className = phoneError.className.replace("d-none", "d-block");
+        } else {
+            phoneError.className = phoneError.className.replace("d-block", " d-none");
+        }
+
+        if (name != "" && phone != "") {
+            $.ajax({
+                method: 'POST',
+                url: "/api/rsvp?formToken=0f9c260dfe6265b4f3fef2532bab8dfw",
+                data: formData,
+                processData: false,
+                contentType: false
+            }).done(function (data) {
+                // $('#rsvp-modal-toggle').modal('hide');
+                const modalEl = document.getElementById('rsvp-modal-toggle');
+                const rsvpModal = bootstrap.Modal.getOrCreateInstance(modalEl);
+
+                const myRsvpedModal = new bootstrap.Modal('#rsvped-modal-toggle', {
+                    keyboard: false
+                });
+                const rsvpedModal = document.getElementById('rsvped-modal-toggle');
+
+                myRsvpedModal.show(rsvpedModal);
+                rsvpModal.hide();
+            });
+        }
+    }
+</script>

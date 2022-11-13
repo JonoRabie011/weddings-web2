@@ -1,0 +1,142 @@
+<div class="navigation-container fixed-top" id="standard-menu">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/our-story">Our Story</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/details/friday">Details Friday</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/details/saturday">Details Saturday</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/accommodation">Accommodation</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/gifts-registry">Gifts</a>
+        </li>
+
+
+{#        {% if not(session.user) %}#}
+{#        <li class="nav-item" style="position:absolute; right: 0">#}
+{#            <a class="nav-link">Login</a>#}
+{#        </li>#}
+{#        {% else %}#}
+{#        <li class="nav-item" style="position:absolute; right: 0">#}
+{#            <a class="nav-link">Logout</a>#}
+{#        </li>#}
+{#        {% endif %}#}
+    </ul>
+</div>
+
+
+
+<nav class="autohide navbar fixed-top" id="mobile-menu">
+    <div class="container-fluid">
+        <button class="navbar-toggler" style="border: 1.5px solid;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header secondary-background">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body secondary-background">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/our-story">Our Story</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/details/friday">Details Friday</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/details/saturday">Details Saturday</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/accommodation">Accommodation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/gifts-registry">Gifts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+
+    if(location.pathname !== '/') {
+
+        // window.onscroll = function() {
+        //     let last_scroll_top = 0;
+        //     window.addEventListener('scroll', function() {
+        //         let scroll_top = window.scrollY;
+        //         if(scroll_top < last_scroll_top) {
+        //             document.getElementById("standard-menu").classList.add("scroll-up");
+        //             document.getElementById("standard-menu").classList.remove("scroll-down");
+        //         }
+        //         else {
+        //             document.getElementById("standard-menu").classList.add("scroll-down");
+        //             document.getElementById("standard-menu").classList.remove("scroll-up");
+        //         }
+        //         last_scroll_top = scroll_top;
+        //     });
+        // }
+
+        $(document).ready(function() {
+            // let navBtns = document.getElementsByClassName("nav-link");
+            // console.log(navBtns);
+            // for (let i = 0; i < navBtns.length; i++) {
+            //     navBtns[i].className +=  " text-dark";
+            // }
+            // $(".nav-item")[0].classList.add("text-light");
+
+            let height = 0;
+            if(window.innerWidth > 450) {
+                height = $("#standard-menu").height();
+            } else {
+                document.getElementById("mobile-menu").className += ' secondary-background';
+                height = $("#mobile-menu").outerHeight();
+                console.log("Mobile Height", height)
+
+            }
+
+            window.addEventListener("scroll", () => {
+                const scroll = $(window).scrollTop();
+                if (window.scrollY > 0) {
+                    document.getElementById("standard-menu").style.top = '-60px';
+                } else {
+                    document.getElementById("standard-menu").style.top = '0px';
+                }
+
+            });
+
+            let bodyContainer = document.getElementById("body-container").style.marginTop = height.toString() + "px";
+
+            window.addEventListener("resize", () => {
+                if(window.innerWidth > 450) {
+                    height = $("#standard-menu").height();
+                } else {
+                    height = $("#mobile-menu").outerHeight();
+                    console.log("Mobile Height", height)
+                }
+
+                bodyContainer = document.getElementById("body-container").style.marginTop = height.toString() + "px"
+            });
+
+        });
+    }
+</script>
+
+
+{#
+    Getting There - Directions
+    Dietry Requirements
+    Events Details
+#}

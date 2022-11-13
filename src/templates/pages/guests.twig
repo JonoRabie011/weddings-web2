@@ -1,0 +1,60 @@
+{%  extends "base.twig" %}
+{% block content %}
+    <div class="container">
+        <h3 class="page-heading">
+            Guests
+        </h3>
+        <div class="row text-center justify-content-center mb-5">
+            <div class="col-12 col-md-3">
+                <div class="stats-tile mb-2">
+                    <span>
+                        Coming
+                    </span>
+                    <span>
+                        {{stats.coming}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="stats-tile mb-2">
+                    <span>
+                        Not Coming
+                    </span>
+                    <span>
+                        {{stats.notComing}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="stats-tile mb-2">
+                    <span>
+                        Total Rsvps
+                    </span>
+                    <span>
+                        {{stats.totalRsvps}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for guest in guests %}
+                <div class="col-12 col-sm-6 col-md-3 mb-2">
+                    <div class="card" style="height: 100%;">
+                        <div class="card-body">
+                            <div class="card-title">
+                                {{guest.fullNames}}
+                            </div>
+                            <div class="card-text">
+                                {{guest.dietaryRestrictions}}
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            {{guest.coming == 'Yes'? 'I am coming' : 'I can\'t come'}}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
