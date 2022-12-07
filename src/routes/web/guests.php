@@ -32,14 +32,13 @@
                 "fullNames" => $line[0] ?? 'No Name',
                 "phone" => $line[1] ?? 'No Phone',
                 "dietaryRestrictions" => $dietary,
-                "coming" => $line[3] ?? 'No Response'
+                "coming" => $line[3] ?? 'No Response',
+                "comingTwo" => $line[4] ?? 'No Response'
             ];
         }
     }
 
-//    echo "<pre>";
-//    print_r($stats);
     fclose($file);
-//    die("okay");
+
     return $response(\Tina4\renderTemplate("/pages/guests.twig", ["guests" => $guests, "stats"=> $stats]), HTTP_OK, TEXT_HTML);
 });

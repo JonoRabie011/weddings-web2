@@ -1,15 +1,15 @@
 {% set title = 'Details'%}
 {% extends "base.twig" %}
 {% block content %}
+{#    {{ dump(weddingDate) }}#}
     <div class="container">
         <h3 class="page-heading pt-2 d-none d-md-block ">
-            Details of our Wedding
+            Inligting
         </h3>
 
         <div class="row details-page-header">
             <div class=" d-none d-md-block col-12 col-md-3 order-1 order-md-1 rounded details-page-header-img" style="
-            background: url('https://www.roomsforafrica.com/new-gallery/brenaissancewineestate_101-x_large.jpg');
-            background-position: center;
+            background: url('{{ backgroundSideBanners }}') center;
             background-size: cover;
             height: 80vh;
             /*min-width: 300px;*/
@@ -18,10 +18,7 @@
                 <div class="d-md-none details-page-header-img-overlay"></div>
                 <div class="text-light d-md-none position-absolute top-50 start-50 translate-middle">
                     <span class="details-page-header-headings-heading fancy-font">
-                        Details
-                    </span>
-                    <span class="details-page-header-headings-subheading montserrat">
-                       OF OUR WEDDING
+                        Inligting
                     </span>
                 </div>
             </div>
@@ -33,18 +30,19 @@
                                 padding: 5px 0;
                                 border-bottom: 2px solid;
                                 font-size: 17px;
+                                text-transform: uppercase;
                                 ">
-                            MONDAY
+                            {{ weddingDate.dayLong }}
                         </span>
                     </div>
                     <div class="col-5 col-md-4 fancy-font text-center text-custom-gray" style="
                     font-size: 41px;
                     font-weight: 700;">
-                        20 <span style="
+                        {{ weddingDate.day }} <span style="
                         vertical-align: text-top;
                         font-size: 19px;
-                        margin-left: -5px;">th</span>
-                        March
+                        margin-left: -5px;">{{ weddingDate.daySuperScript }}</span>
+                        {{ weddingDate.monthLong }}
                     </div>
                     <div class="col montserrat text-start text-custom-gray" style="line-height: 54px; margin-left: -25px;">
                         <span style="
@@ -55,43 +53,56 @@
                                 text-align: center;
                                 font-size: 17px;
                                 ">
-                            2023
+                            {{ weddingDate.yearLong }}
                         </span>
                     </div>
                 </div>
 
                 <div class="row" style="max-width: 384px; margin: 0 auto; font-size: 16px;">
-                    <div class="col-12 p-3"  style="letter-spacing: 1px;">
-                        GUESTS TO ARRIVE AT 3:30 PM
+                    {% if guestArrival %}
+                    <div class="col-12 p-3 text-uppercase"  style="letter-spacing: 1px;">
+                        {{ guestArrival }}
                     </div>
-                    <div class="col-12 p-3"  style="letter-spacing: 1px;">
-                        CEREMONY STARTS AT 3:45 PM
+                    {% endif %}
+                    {% if ceremonyStart %}
+                    <div class="col-12 p-3 text-uppercase"  style="letter-spacing: 1px;">
+                        {{ ceremonyStart }}
                     </div>
-                    <div class="col-12 p-3" style=" letter-spacing: 1px;"  style="letter-spacing: 1px;">
-                        BRENAISSANCE WINE AND STUD FARM
+                    {% endif %}
+                    <div class="col-12 p-3 " style=" letter-spacing: 1px;"  style="letter-spacing: 1px;">
+                        {% if venueName %}
+                        <span class="text-uppercase">
+                            {{ venueName }}
+                        </span>
                         <br>
+                        {% endif %}
+                        {% if venueLocation %}
                         <span class="fancy-font" style="font-size: 33px;
                                                         font-weight: 700;
                                                         letter-spacing: 2px;">
-                            Stellenbosch, Western Cape
+                            {{ venueLocation }}
                         </span>
+                        {% endif %}
                     </div>
-                    <div class="col-12 p-3" style="letter-spacing: 1px;">
-                        SEMI FORMAL DRESS CODE
+                    {% if dressCode %}
+                    <div class="col-12 p-3 text-uppercase" style="letter-spacing: 1px;">
+                        {{ dressCode }}
                     </div>
+                    {%  endif %}
+                    {% if reminderMessage %}
                     <div class="col-12 p-3">
                         <span class="montserrat" style="font-size: 11px;
                                 letter-spacing: 2px;
                                 text-transform: uppercase">
-                            PS. Don't forget your dancing shoes!
+                            {{ reminderMessage }}
                         </span>
                     </div>
+                    {% endif %}
                 </div>
                 <div class="row" style="max-width: 300px; margin: 10px auto 0;border-bottom: 1px solid"></div>
             </div>
             <div class="col-12 col-md-3 order-1 order-md-3 rounded details-page-header-img" style="
-            background: url('https://www.roomsforafrica.com/new-gallery/brenaissancewineestate_101-x_large.jpg');
-            background-position: center;
+            background: url('{{ backgroundSideBanners }}') center;
             background-size: cover;
             height: 80vh;
             /*min-width: 300px;*/
@@ -100,122 +111,10 @@
                 <div class="d-md-none details-page-header-img-overlay"></div>
                 <div class="text-light d-md-none position-absolute top-50 start-50 translate-middle">
                     <span class="details-page-header-headings-heading fancy-font">
-                        Details
-                    </span>
-                    <span class="details-page-header-headings-subheading montserrat">
-                       OF OUR WEDDING
+                        Inligting
                     </span>
                 </div>
             </div>
         </div>
-
-
-{#        <p class="montserrat text-uppercase our-story-text"  style="text-align: justify">#}
-{#            <img class="rounded" src="https://www.roomsforafrica.com/new-gallery/brenaissancewineestate_101-x_large.jpg"  height="400px" alt="" style="#}
-{#        float: right;#}
-{#        margin-left: 10px;#}
-{#        min-height: 400px;#}
-{#        height: 80vh;">#}
-
-
-
-
-{#            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in ex dui. Maecenas sed convallis mauris, at#}
-{#            faucibus odio. Aliquam erat volutpat. Nunc ut interdum lacus. Nunc ut neque vehicula, tempor mauris quis,#}
-{#            pretium velit. Interdum#}
-{#            et malesuada fames ac ante ipsum primis in faucibus. Phasellus vitae vestibulum dui. Vestibulum interdum#}
-{#            lobortis felis, eget porta metus porta a. Suspendisse volutpat leo nec mattis bibendum.#}
-
-{#            Quisque eget purus sed enim interdum mattis in gravida magna. Vestibulum sed orci a lorem tempus commodo. Morbi#}
-{#            porta nunc vel vulputate fringilla. Mauris dignissim scelerisque elit, sed dictum nulla cursus a. Duis viverra#}
-{#            fermentum velit sed lacinia. Aliquam#}
-{#            aliquet ultrices facilisis. Donec neque nisl, blandit ut bibendum vel, dapibus facilisis metus. Fusce quis#}
-{#            lacinia est, a posuere eros.#}
-{#            Suspendisse vehicula semper vulputate. Praesent auctor, elit convallis lacinia auctor, lacus nulla varius leo, vitae pulvinar purus orci a risus.#}
-{#            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget ex ullamcorper, dictum enim id, fringilla nisi.#}
-{#            Phasellus id blandit nisi, sed imperdiet nunc. Aliquam bibendum ut augue eget hendrerit.#}
-
-{#            Fusce sit amet ultrices leo. Integer scelerisque maximus ipsum, nec iaculis libero. Suspendisse ante purus, porttitor eu neque sed, luctus interdum tortor. Aenean eget luctus leo. Ut venenatis porttitor lacus, sit amet pharetra enim cursus vitae. Duis cursus neque enim, fringilla iaculis magna cursus ut. Praesent pulvinar quam turpis, sed ultricies nisi faucibus vel. Mauris iaculis dolor id vestibulum convallis. Curabitur lectus nulla, auctor vitae lacinia ac, aliquet non elit. Nunc ornare diam et libero rutrum gravida. Vivamus augue felis, accumsan at vestibulum quis, blandit sed massa. Sed id nisi quis nulla fringilla imperdiet. In tristique sed neque ac commodo. Nullam vel dapibus dolor.#}
-
-{#            Suspendisse potenti. In sagittis velit leo, quis semper velit tincidunt at. Sed mollis arcu sapien, non vulputate lectus ornare vitae. Aliquam posuere libero vitae diam mattis, a placerat enim fermentum. Aenean tempor eu nibh at vulputate. Maecenas finibus, lectus non ornare varius, velit purus iaculis magna, non rhoncus leo diam a ante. Cras aliquet ante turpis, mattis commodo lacus dapibus vitae. Proin vulputate, libero sed viverra ullamcorper, leo lorem fermentum sapien, eget blandit felis nulla ut massa. Suspendisse potenti. Phasellus condimentum suscipit vestibulum. Nulla facilisi.#}
-
-{#            Suspendisse ut justo in diam pretium tincidunt quis hendrerit orci. Phasellus augue leo, vulputate varius auctor eu, sagittis sed turpis. Nunc ac dictum quam. Nunc vestibulum, ipsum nec porttitor iaculis, urna quam tincidunt felis, at pretium velit justo in magna. Proin congue eros diam, non pulvinar odio porta id. Praesent ante nulla, hendrerit ut nibh nec, ornare dapibus sapien. Suspendisse ante massa, rhoncus eget faucibus eget, porttitor ac massa. Proin porta eget erat a sollicitudin. Nam orci metus, convallis at elementum in, tempor convallis orci. Ut fringilla eros lectus, quis ornare magna venenatis ut. Vestibulum viverra ac mauris id pellentesque. Aenean in nunc ultricies, blandit tellus id, vestibulum augue. Nullam accumsan viverra tortor, eget fermentum ante feugiat id. Mauris et justo non sapien cursus hendrerit. Proin ex diam, auctor viverra blandit vel, ullamcorper in purus.#}
-{#        </p>#}
     </div>
-{#<div class="row details-page-header" >#}
-{#    <div class="col-12 col-md-9 details-page-header-img">#}
-{#        <div class="d-md-none details-page-header-img-overlay"></div>#}
-{#        <div class="text-light d-md-none position-absolute top-50 start-50 translate-middle">#}
-{#            <span class="details-page-header-headings-heading fancy-font">#}
-{#                Details#}
-{#            </span>#}
-{#            <span class="details-page-header-headings-subheading montserrat">#}
-{#               OF OUR WEDDING#}
-{#            </span>#}
-{#        </div>#}
-{#    </div>#}
-{#</div>#}
-{#<div class="row text-center p-5 montserrat">#}
-{#    <div class="col">#}
-{#        <span class="details-page-text-lines">#}
-{#            MONDAY#}
-{#        </span>#}
-{#    </div>#}
-{#    <div class="col">#}
-{#        20th March#}
-{#    </div>#}
-{#    <div class="col">#}
-{#        <span class="details-page-text-lines">#}
-{#            2023#}
-{#        </span>#}
-{#    </div>#}
-{#</div>#}
-{#<div class="row">#}
-{#    <div class="col-2"></div>#}
-{#     <div class="col-8">#}
-{#        GUEST TO ARRIVE AT 3:30PM#}
-{#        <br>#}
-{#        CEREMONY STARTS AT 4:00PM#}
-{#        <br><br>#}
-{#        BRENAISSANCE WINE AND STUD ESTATE#}
-{#        <br>#}
-{#        STELLENBOSCH#}
-{#        <br>#}
-{#        SEMI FORMAL DRESSING CODE#}
-{#    </div>#}
-{#    <div class="col-2"></div>#}
-{#</div>#}
-{#   <div class="card-rows">#}
-{#       <div class="row">#}
-{#           <div class="col-12 col-md-6">#}
-{#               <div class="card p-5 text-center">#}
-{#                   GUEST TO ARRIVE AT 3:30PM#}
-{#               </div>#}
-{#           </div>#}
-{#           <div class="d-none d-md-block col-12 col-md-6 "></div>#}
-{#       </div>#}
-{#       <div class="row">#}
-{#           <div class="col-12 col-md-6 "></div>#}
-{#           <div class="d-none d-md-block col-12 col-md-6">#}
-{#               <div class="card p-5 text-md-center">#}
-{#                   CEREMONY STARTS AT 4:00PM#}
-{#               </div>#}
-{#           </div>#}
-{#       </div>#}
-{#       <div class="row more-details">#}
-{#           <div class="col-12 col-md-6">#}
-{#               <div class="card p-5 text-center">#}
-{#                   BRENAISSANCE WINE AND STUD ESTATE#}
-{#                   <br>#}
-{#                   STELLENBOSCH#}
-{#               </div>#}
-{#           </div>#}
-{#           <div class="col-12 col-md-6">#}
-{#               <div class="card p-5 text-center">#}
-{#                   SEMI FORMAL DRESSING CODE#}
-{#               </div>#}
-{#           </div>#}
-{#       </div>#}
-{#   </div>#}
-
 {% endblock %}

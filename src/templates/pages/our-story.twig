@@ -3,18 +3,11 @@
 {% block content %}
 <div class="container">
     <h3 class="page-heading">
-        Our Story
+        Ons Storie
     </h3>
 
-{#    @TODO Make this dynamic #}
-{#    <p class="our-story-text" style="text-align: justify-all;">#}
-{#        <img class="rounded d-none d-md-block" src="{{data.ourStoryImg}}"  height="400px" alt="" style="#}
-{#        float: left;#}
-{#        min-height: 400px;#}
-{#        height: 80vh;#}
-{#        margin-right: 15px;">#}
-{#        {{ data.ourStory | raw }}#}
-{#    </p>#}
+    <img class="rounded d-md-none d-block our-story-img w-100 mb-3" src="{{data.ourStoryImg}}" alt=""
+         style="min-width: 324px;">
 
     <p class="our-story-text" style="text-align: justify-all;">
         <img class="rounded d-none d-md-block" src="{{data.ourStoryImg}}"  height="400px" alt="" style="
@@ -25,7 +18,5 @@
         {{ data.ourStory | raw }}
     </p>
 </div>
-
-{#{{data.ourStory | raw}}#}
 
 {% endblock %}

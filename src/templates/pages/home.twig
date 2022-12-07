@@ -8,10 +8,10 @@
 
 {#             @TODO Make it more dynamic for other users#}
             <h3 class="carousel-overlay-img-headers-wedding-title">
-                {{data.wedding_title}}
-                <span class="carousel-overlay-img-headers-wedding-title-subtitle montserrat">we're getting married</span>
+                {{data.weddingTitle}}
+                <span class="carousel-overlay-img-headers-wedding-title-subtitle montserrat">Ons gaan trou!</span>
             </h3>
-            <div class="carousel-overlay-img-headers-wedding-date montserrat">{{data.wedding_date}}</div>
+            <div class="carousel-overlay-img-headers-wedding-date montserrat">{{data.weddingDate}}</div>
             <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#rsvp-modal-toggle" style="display: block; margin: 2px auto 0 auto; border-radius: 0; width: 94px;">
                 RSVP
             </button>
@@ -19,11 +19,11 @@
         <div id="counter" style="margin-bottom: 65px;" class="position-absolute bottom-0 start-50 translate-middle-x text-light">
             <div class="row">
                 <div class="col-3 p-1">
-                    <span class="count-down-card-title montserrat">DAYS</span>
+                    <span class="count-down-card-title montserrat">DAE</span>
                     <span id="days" class="count-down-card">362</span>
                 </div>
                 <div class="col-3 p-1">
-                    <span class="count-down-card-title montserrat">HRS</span>
+                    <span class="count-down-card-title montserrat">URE</span>
                     <span id="hours" class="count-down-card">362</span>
                 </div>
                 <div class="col-3 p-1">
@@ -31,7 +31,7 @@
                     <span id="min" class="count-down-card">362</span>
                 </div>
                 <div class="col-3 p-1">
-                    <span class="count-down-card-title montserrat">SEC</span>
+                    <span class="count-down-card-title montserrat">SEK</span>
                     <span id="seconds" class="count-down-card">362</span>
                 </div>
             </div>
@@ -52,7 +52,7 @@
 {#      s  <span id="flipdown" class="flipdown position-absolute bottom-0 start-50 translate-middle-x text-light"></span>#}
     </div>
     <div class="carousel-inner">
-        {% for img in data.carousel_imgs%}
+        {% for img in data.carouselImgs%}
             <div class="carousel-item {{loop.index == 1? 'active' : ''}}">
                 <div class="carousel-item-img d-none d-sm-block" style="background-image: url('{{img.standard}}')"></div>
                 <div class="carousel-item-img d-block d-sm-none" style="background-image: url('{{img.mobile}}')"></div>
@@ -97,7 +97,7 @@
 
 <script>
     // Set the date we're counting down to
-    var countDownDate = new Date("Mar 20, 2023 15:30:00").getTime();
+    var countDownDate = new Date("Apr 1, 2023 15:30:00").getTime();
 
     // Update the count down every 1 second
     var x = setInterval(function() {

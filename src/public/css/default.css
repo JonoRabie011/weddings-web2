@@ -375,7 +375,7 @@ gifts-carousel {
   font-weight: 500;
 }
 .secondary-background {
-  background: #d0ab8e !important;
+  background: #777053 !important;
 }
 .text-custom-gray {
   color: #302f2f !important;
@@ -449,14 +449,14 @@ gifts-carousel {
   font-family: "Montserrat", sans-serif !important;
   font-size: 13px;
   position: absolute;
-  bottom: 86px;
+  bottom: 74px;
   width: fit-content;
   right: 0;
 }
 @media screen and (max-width: 468px) {
   .home-carousel .carousel-overlay-img .carousel-overlay-img-headers .carousel-overlay-img-headers-wedding-title .carousel-overlay-img-headers-wedding-title-subtitle {
     right: 5px;
-    bottom: 69px;
+    bottom: 58px;
     font-size: 8.5px !important;
   }
 }
@@ -475,7 +475,8 @@ gifts-carousel {
   height: var(--homepage-carousel-height);
   min-height: 430px;
   width: 100vw;
-  background-position: center;
+  background-position-y: 32%;
+  background-position-x: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -558,7 +559,7 @@ gifts-carousel {
   border: none !important;
 }
 .rsvp-modal .modal-footer .rsvp-btn {
-  background: #d0ab8e;
+  background: none;
   border: 1px solid #302f2f !important;
 }
 @media screen and (max-width: 655px) {
@@ -628,4 +629,7 @@ gifts-carousel {
   position: absolute;
   top: -3rem;
   left: 3rem;
+}
+.list-group-item {
+  background: none !important;
 }

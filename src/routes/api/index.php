@@ -10,7 +10,7 @@
         $responseMessage["error"] = true;
     } else {
 
-        $rowSav = ["{$request->data->fullNames}", "{$request->data->phone}", "{$request->data->dietaryRestrictions}", "{$request->data->coming}"];
+        $rowSav = ["{$request->data->fullNames}", "{$request->data->phone}", "{$request->data->dietaryRestrictions}", "{$request->data->coming}", "{$request->data->coming1}"];
         $fileWriter = fopen("./output/output.csv", "a");
         if(is_bool($fileWriter)) {
             $responseMessage["message"] = "Failed to save response!";

@@ -3,43 +3,43 @@
     <div  class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered rsvp-modal">
         <div class="modal-content ">
             <div class="modal-header secondary-background">
-                <h5 class="modal-title montserrat" id="exampleModalToggleLabel">PLEASE RSVP</h5>
+                <h5 class="modal-title montserrat" id="exampleModalToggleLabel">RSVP ASSEBLIEF</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body secondary-background">
-                <img src="/src/public/images/rabie-wedding/icon.png"
-                     class="d-md-none"
-                     style="
-                     min-width: 130px;
-                    width: 35vw;
-                    margin: 0 auto;
-                    display: block;
-                    margin-bottom: 20px;" alt="">
                 <form name="validForm" id="rsvp-form" class="needs-validation" novalidate>
                     <div class="mb-3">
-                        <label for="nameInput" class="form-label montserrat">NAME AND SURNAME</label>
+                        <label for="nameInput" class="form-label montserrat">NAAM EN VAN</label>
                         <input type="text" class="form-control" name="fullNames" id="nameInput" required>
                         <div id="nameError" class="form-text text-danger d-none">Please enter your name and surname</div>
                     </div>
                     <div class="mb-3">
-                        <label for="emailInput" class="form-label montserrat">PHONE NUMBER</label>
-{#                        @TODO fix input yo phone number type#}
+                        <label for="emailInput" class="form-label montserrat">TELEFOON NOMMER</label>
                         <input type="text" class="form-control" name="phone" id="phoneInput" aria-describedby="emailHelp" required>
 {#                        <div id="emailHelp" class="form-text">We'll never share your phone number</div>#}
                         <div id="phoneError" class="form-text text-danger d-none">Please enter a phone number</div>
                     </div>
                     <div class="mb-3">
-                        <label for="dietaryRestrictions" class="form-label montserrat">DIETARY RESTRICTIONS</label>
+                        <label for="dietaryRestrictions" class="form-label montserrat">ALLERGIEË</label>
                         <textarea class="form-control" name="dietaryRestrictions" id="dietaryRestrictions" rows="3"></textarea>
                     </div>
 
 {#                    RSVP#}
+                    <span class="form-label montserrat">VRYDAG BRAAI</span>
                     <div style="width: fit-content; margin: 0 auto">
                         <input type="radio" class="btn-check" name="coming" id="danger-outlined" autocomplete="off" value="No">
-                        <label class="btn btn-outline montserrat text-uppercase" style="font-size: 14px;" for="danger-outlined">Sorry, I can't make it</label>
+                        <label class="btn btn-outline montserrat text-uppercase" style="font-size: 14px;" for="danger-outlined">Jammer, lekker braai</label>
 
                         <input type="radio" class="btn-check" name="coming" id="success-outlined" autocomplete="off" value="Yes" checked>
-                        <label class="btn btn-outline montserrat text-uppercase" style="font-size: 14px;" for="success-outlined">Yes, let's do this!</label>
+                        <label class="btn btn-outline montserrat text-uppercase" style="font-size: 14px;" for="success-outlined">Ja, Sien julle daar</label>
+                    </div>
+                    <span class="form-label montserrat">SATERDAG TROUE</span>
+                    <div style="width: fit-content; margin: 0 auto">
+                        <input type="radio" class="btn-check" name="coming1" id="danger-outlined-1" autocomplete="off" value="No">
+                        <label class="btn btn-outline montserrat text-uppercase" style="font-size: 14px;" for="danger-outlined-1">Jammer, lekker trou</label>
+
+                        <input type="radio" class="btn-check" name="coming1" id="success-outlined-1" autocomplete="off" value="Yes" checked>
+                        <label class="btn btn-outline montserrat text-uppercase" style="font-size: 14px;" for="success-outlined-1">Ja, Sien julle daar</label>
                     </div>
                 </form>
             </div>
@@ -99,7 +99,8 @@
         if (name != "" && phone != "") {
             $.ajax({
                 method: 'POST',
-                url: "/api/rsvp?formToken=0f9c260dfe6265b4f3fef2532bab8dfw",
+                // url: "/api/rsvp?formToken=0f9c260dfe6265b4f3fef2532bab8dfw",
+                url: "/api/rsvp?formToken={{ formToken('api/rsvp') }}",
                 data: formData,
                 processData: false,
                 contentType: false

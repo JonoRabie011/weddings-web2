@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <h3 class="page-heading">
-        Where to Stay
+        Verblyf Idees
     </h3>
     <div class="row accommodation-container" style="max-width: 1000px; margin: auto">
         {% for acc in accommodation %}
@@ -42,10 +42,12 @@
                             {{acc.title}}
                         </span>
                     {#                        <span class="d-block">Rooms</span>#}
+                    {% if acc.distance %}
                     <span class="d-block within-text">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             {{acc.distance}}
                     </span>
+                    {% endif %}
                 </div>
             </div>
         </div>

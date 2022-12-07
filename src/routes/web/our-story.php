@@ -3,44 +3,34 @@
 \Tina4\Get::add("/our-story", function (\Tina4\Response $response) {
 
 //    $ourStoryPage["ourStoryImg"] = AWS_BUCKET_PUBLIC_URL."/weddings/J%26K-25.jpg";
-    $ourStoryPage["ourStoryImg"] = "https://via.placeholder.com/600x900.png";
+    $ourStoryPage["ourStoryImg"] = "/images/weddings/2/ourstory.JPG";
     $ourStoryPage["ourStory"] = "
         <span class=\"montserrat text-uppercase our-story-text-span\">
-        Spicy jalapeno bacon ipsum dolor amet in sed tri-tip ut jowl deserunt pariatur velit minim biltong. Pork chop alcatra 
-        sed prosciutto spare ribs in. Alcatra magna biltong, aute kevin nisi cillum burgdoggen in. Deserunt capicola 
-        cow shoulder boudin chislic kevin pancetta leberkas corned beef culpa consectetur tail pork belly est.
+        Telkemale dink ‘n mens terug aan ‘n spesiale tyd in jou lewe en wens jy, jy kan teruggaan na daardie eerste ontmoeting. 
+        (Ons het wel as vierjariges saam gebaljaar.) Die emosies wat jy daardie tyd gevoel het, raak vae herinneringe wat slegs 
+        terugkom as jy jou oё styf toeknyp en die oomblik probeer herleef. Ons het in 2018 ontmoet in Hartenbos en die 
+        somersvakansie van ‘n leeftyd gehad, met sonskyn en baie roomys. Voordat ons oё kon uitvee, was die vakansie 
+        verby en realitiet het ingeskop, wat beteken het, dat ons 800km weg van mekaar af sou wees. 
         <br><br>
-         Eiusmod cupim in mollit, aliquip tongue flank. Strip steak turkey reprehenderit drumstick capicola sint qui
-         consequat tenderloin shank jowl. Chicken ham hock ham bacon velit laboris. Leberkas corned beef cupim bresaola 
-         pariatur, cow tongue jerky minim. Lorem strip steak picanha tri-tip, aliqua elit capicola swine. Boudin 
-         pork chop aliqua minim, shank consequat sunt salami capicola frankfurter adipisicing bacon in excepteur est. 
-         Magna ut shankle alcatra.
+        Al was dit moeilik as gevolg van die afstand, het ons toe besluit om beste vriende te bly en mekaar beter te leer ken. 
+        Ons het bly glo soos die Bybel sȇ in Jeremia 29:11: “Ek weet wat ek vir julle beplan, voorspoed en nie teenspoed”. 
+        Ons het geweet alles sal uitwerk soos dit moet. Ons moet net aanhou glo!
         <br><br>
-        Nisi officia nulla ea chicken labore ham hock proident in pork loin dolore strip steak qui sed. Consequat 
-        ribeye culpa pork belly bresaola dolor labore beef swine et. Buffalo alcatra do, ad ham reprehenderit labore 
-        excepteur meatloaf in. Corned beef qui prosciutto, capicola lorem ipsum aute aliqua aliquip landjaeger leberkas 
-        strip steak eiusmod pork loin velit.
+        Ons het kontak behou en elke Desember weer begin waar ons dinge gelos het. Ons het soveel wonderlike herinneringe 
+        gemaak, tot die Here dit so beplan het dat ons albei twee jaar later in die Paarl sal bly. So het ons paaie weer gekruis. 
         <br><br>
-        Beef ground round reprehenderit fugiat pastrami, shoulder shankle et in aute id. Drumstick biltong consequat 
-        aliqua pig, est lorem ball tip consectetur shoulder deserunt. Corned beef burgdoggen ribeye salami laboris, 
-        ut turkey tail minim velit beef short loin sausage chislic exercitation. Laboris strip steak pancetta short 
-        loin rump venison filet mignon pork belly consectetur. Chuck chislic jowl, drumstick turkey landjaeger jerky 
-        commodo venison. Shank do andouille buffalo id corned beef. Shankle cupidatat dolor laboris ham biltong lorem 
-        tempor meatball est irure excepteur jerky jowl enim.
+        Dit was te goed om waar te wees en in Desember 2020, met die Hartenbos sonskyn en weer baie roomyse later, het ons 
+        besluit om ons vriendskap verder te neem. Deur die genade en liefde van ons Hemelse Vader, in die hartjie van Pretoria waar die 
+        beste rugbyspan gespeel het, het Dewitt die groot vraag gevra. Neline was baie opgewonde oor die mooi ring en wou dit dadelik 
+        aansit, waarna Dewitt gesȇ het: “Jy het nog nie “ja” gesȇ nie.”
         <br><br>
-        Velit capicola venison non ipsum mollit. Nulla brisket pork belly strip steak short loin fatback et, sunt 
-        nisi boudin t-bone pig laboris. Sed meatloaf do est ham esse ut sausage prosciutto. Turkey non enim eiusmod 
-        swine sunt, anim shank. Frankfurter adipisicing short loin leberkas, consectetur kielbasa deserunt ut andouille 
-        eiusmod beef doner id aliqua. Sunt chuck consequat fatback. Filet mignon dolore bacon reprehenderit andouille 
-        cupidatat tenderloin excepteur, pastrami drumstick in.
+        Ons is vandag baie dankbaar en gereed om voor God en ons wonderlike ouers, susters, vriende en familie ons huweliksbelofte af te lȇ. 
         <br><br>
-        Dolor consectetur nulla andouille ut, meatloaf salami. Culpa id shankle, chuck brisket velit leberkas. 
-        Sunt esse shoulder lorem turkey dolore frankfurter leberkas sirloin ribeye ut chislic. Flank burgdoggen 
-        incididunt cupim frankfurter ipsum spare ribs jerky consectetur chicken nostrud leberkas.
+        Kan nie wag om julle te sien op 1 April 2023 nie!! 
         <br><br>
         </span>
         <span class=\"fancy-font\" style=\"font-size: 70px; color: #363434\">
-            Keara x Jonathan
-        </span>.";
+            Neline x Dewitt
+        </span>";
     return $response(\Tina4\renderTemplate("/pages/our-story.twig", ["data"=>$ourStoryPage]), HTTP_OK, TEXT_HTML);
 });

@@ -67,13 +67,13 @@ $MobileBreakPoint: 468px;
           font-family: 'Montserrat', sans-serif !important;
           font-size: 13px;
           position: absolute;
-          bottom: 86px;
+          bottom: 74px;
           width: fit-content;
           right: 0;
 
           @media screen and (max-width: $MobileBreakPoint) {
             right: 5px;
-            bottom: 69px;
+            bottom: 58px;
             font-size: 8.5px !important;
           }
         }
@@ -97,7 +97,9 @@ $MobileBreakPoint: 468px;
     height: var(--homepage-carousel-height);
     min-height: $HeaderImgMinHeight;
     width: 100vw;
-    background-position: center;
+    background-position-y: 32%;
+    background-position-x: center;
+    //background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -201,7 +203,7 @@ $MobileBreakPoint: 468px;
     border: none !important;
 
     .rsvp-btn {
-      background: #d0ab8e;
+      background: none;
       border: 1px solid #302f2f !important;
       //color: ;
     }

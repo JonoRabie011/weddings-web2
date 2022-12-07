@@ -12,16 +12,17 @@
         "name" => "jonathan",
         "surname" => "Rabie"
     ];
-//    "images/rabie-wedding/J&K-07.jpg"
-    $homePage["carousel_imgs"] = [
-        [
-            "standard" => "https://jrwebdesigns-sa.s3.af-south-1.amazonaws.com/weddings/J%26K-07.jpg",
-            "mobile" => "https://jrwebdesigns-sa.s3.af-south-1.amazonaws.com/weddings/homePage3.jpeg"
-        ]
+
+    $homePage = [
+        "carouselImgs" => [
+            [
+                "standard" => "/images/weddings/2/home-page-1.JPG",
+                "mobile" => "images/weddings/2/home-page-1.JPG"
+            ]
+        ],
+        "weddingTitle" => "Neline & Dewitt",
+        "weddingDate" => "01.04.2023"
     ];
-    $homePage["wedding_title"] = "Keara & Jonathan";
-    $homePage["wedding_date"] = "20.03.2023";
-//    , "images/rabie-wedding/homePage2.jpeg"
 
    return $response(\Tina4\renderTemplate('pages/home.twig', ["data"=> $homePage]), HTTP_OK, TEXT_HTML);
 });
